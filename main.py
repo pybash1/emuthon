@@ -36,7 +36,7 @@ def terminal(name, startDir):
                     try:
                         os.chdir(finalInp)
                     except FileNotFoundError:
-                        err = "pyemu: cd: {}: No such file or directory".format(finalInp)
+                        err = "emuthon: cd: {}: No such file or directory".format(finalInp)
                         print(Fore.RED + err)
                         print(Fore.RED + Fore.CYAN)
                 else:
