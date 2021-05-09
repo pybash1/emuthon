@@ -21,7 +21,8 @@ def terminal(name, startDir):
     try:
         os.chdir(startDir)
         color = colorCodes.get(config['Emulator']['foreColor'])
-        if color != None:
+        errorColor = colorCodes.get(config['Emulator']['errorColor'])
+        if color != None and errorColor != None:
             print(color + config['Emulator']['startLine'])
             while True:
                 currentDir = os.getcwd()
@@ -37,8 +38,8 @@ def terminal(name, startDir):
                         os.chdir(finalInp)
                     except FileNotFoundError:
                         err = "emuthon: cd: {}: No such file or directory".format(finalInp)
-                        print(Fore.RED + err)
-                        print(Fore.RED + Fore.CYAN)
+                        print(errorColor + err)
+                        print(errorColor + color)
                 else:
                     subprocess.run(inp, shell=True)
         else:
